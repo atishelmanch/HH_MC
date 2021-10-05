@@ -1,0 +1,308 @@
+. gridpack_generation.sh VBFToRadionToHH_2016_M300 cards/production/2017/13TeV/VBFToXToHH/VBFToRadionToHH_2016_M300/
+
+More KL study events: 
+
+switched to cmssw_10_5_0 
+
+crab submits successfully 
+
+####
+
+ask Yacine: 
+
+trying to run crab for many events: 
+
+The server answered with an error.
+Server answered with: Invalid input parameter
+Reason is: ERROR: CMSSW_9_3_8 on slc7_amd64_gcc630 is not among supported releases; Use config.JobType.allowUndistributedCMSSW = True if you are sure of what you are doing
+Error Id: e8263f23da30b28e1e4b875b2c2b5b1f
+Log file is /afs/cern.ch/work/a/atishelm/private/HH_MC/Production/CMSSW_9_3_8/src/abe_HH_MC_crab_projects/crab_abe_HH_MC/crab.log
+
+#########
+
+. gridpack_generation.sh VBFToBulkGravitonToHH_2016_M260 cards/production/2017/13TeV/VBFToXToHH/VBFToBulkGravitonToHH_2016_M260/
+
+VBF Cards here: 
+/afs/cern.ch/work/a/atishelm/private/HH_MC/genproductions/bin/MadGraph5_aMCatNLO/cards/production/2017/13TeV/VBFToXToHH
+cards/production/2017/13TeV/VBFToXToHH
+
+
+
+# make cards 
+cd /afs/cern.ch/work/a/atishelm/private/HH_MC/genproductions/bin/MadGraph5_aMCatNLO/cards/production/2017/13TeV/exo_diboson
+python createCards_BSM_HH_2016.py -f Spin-0/Radion_hh_narrow/Radion_hh_GF_HH_narrow_2016Template/Radion_hh_GF_HH_narrow_2016Template -g
+
+# To make a gridpack from radion GF 2016 
+. gridpack_generation.sh Radion_hh2016_narrow_M700 cards/production/2017/13TeV/exo_diboson/Spin-0/Radion_hh2016_narrow/Radion_hh_narrow_M700/
+
+store in: /afs/cern.ch/work/a/atishelm/public/gridpacks 
+
+
+
+
+
+
+
+
+
+remove old gridpack directory to make new one with LO pdf 
+rm -rf BulkGraviton_hh_GF_HH_narrow_M850
+. gridpack_generation.sh BulkGraviton_hh_GF_HH_narrow_M700 cards/production/pre2017/13TeV/exo_diboson/Spin-2/BulkGraviton_hh_narrow/BulkGraviton_hh_GF_HH_narrow_M700
+
+. gridpack_generation.sh BulkGraviton_hh_GF_HH_narrow_M700 cards/production/pre2017/13TeV/exo_diboson/Spin-2/BulkGraviton_hh_narrow/BulkGraviton_hh_GF_HH_narrow_M700
+
+new cards:
+/afs/cern.ch/work/a/atishelm/private/HH_MC/genproductions/bin/MadGraph5_aMCatNLO/cards/production/pre2017/13TeV/exo_diboson/Spin-2/BulkGraviton_hh_narrow/
+
+lhaid
+
+Twiki: 292000: NNPDF30_nlo_nf_4_pdfas
+pre2017 genproduction: 263400: NNPDF30_lo_as_0130_nf_4
+
+. gridpack_generation.sh BulkGraviton_hh_GF_HH2016_narrow_M700 cards/production/2017/13TeV/exo_diboson/Spin-2/BulkGraviton_hh2016_narrow/BulkGraviton_hh_GF_HH_narrow_M700
+. gridpack_generation.sh BulkGraviton_hh_GF_HH2016_narrow_M700 cards/production/2017/13TeV/exo_diboson/Spin-2/BulkGraviton_hh2016_narrow/BulkGraviton_hh_GF_HH_narrow_M700
+
+/afs/cern.ch/work/a/atishelm/private/HH_MC/genproductions/bin/MadGraph5_aMCatNLO/cards/production/2017/13TeV/exo_diboson/Spin-2/BulkGraviton_hh_2016_narrow/BulkGraviton_hh_2016_GF_HH_narrow_M700/BulkGraviton_hh_GF_HH2016_narrow_M700_proc_card.dat
+
+make gridpack:
+. gridpack_generation.sh BulkGraviton_hh_GF_HH2016_narrow_M700 cards/production/2017/13TeV/exo_diboson/Spin-2/BulkGraviton_hh2016_narrow/BulkGraviton_hh_GF_HH_narrow_M700
+
+make cards:
+cd /afs/cern.ch/work/a/atishelm/private/HH_MC/genproductions/bin/MadGraph5_aMCatNLO/cards/production/2017/13TeV/exo_diboson
+python createCards_BSM_HH_2016.py -f Spin-2/BulkGraviton_hh_narrow/BulkGraviton_hh_GF_HH_narrow_2016Template/BulkGraviton_hh_GF_HH_narrow_2016Template -g
+
+/afs/cern.ch/work/a/atishelm/public/gridpacks
+800 829 0922
+21 July 2019:
+ . gridpack_generation.sh BulkGraviton_hh_GF_HH_narrow_M900 cards/production/2017/13TeV/exo_diboson/Spin-2/BulkGraviton_hh_narrow/BulkGraviton_hh_GF_HH_narrow_M900
+
+20 July 2019:
+
+/afs/cern.ch/work/a/atishelm/public/gridpacks/
+
+Questions:
+- Where do I check for available gridpacks, are they contained in /cvmfs/cms.cern.ch/phys_generator/gridpacks/gridpacks/ ?
+- Konstantin pointed out the samples missing for the bbtautau channel. (I'm pretty sure gridpacks are not desined for specific final states. This can be done with Pythia. Is this what they're doing ?)
+- Is this correct for the pdf choices?:
+
+2016:
+ lhapdf = pdlabel ! PDF set
+ 292000 = lhaid
+
+2017:
+ lhapdf = pdlabel ! PDF set
+ $DEFAULT_PDF_SETS = lhaid
+ $DEFAULT_PDF_MEMBERS  = reweight_PDF
+
+4 June 2019
+
+----
+
+gg->HH NLO POWHEG gridpacks:
+
+/cvmfs/cms.cern.ch/phys_generator/gridpacks/slc6_amd64_gcc700/13TeV/powheg/V2/ggH
+H_EWChL_NNPDF31_13TeV_M125_cHHH*/v2/
+
+hhmc
+cd HHStatAnalysis/AnalyticalModels/test/
+cmsenv
+scram b -j
+
+/eos/user/a/acarvalh/asciiHH_tofit/GF_HH_BSM/events_SumV0.root does not exist 
+
+https://indico.cern.ch/event/812018/contributions/3408158/attachments/1836640/3009460/GEN_20190409.pdf
+
+cmsDriver.py Configuration/GenProduction/python/HIG-RunIIFall18wmLHEGS-00762-fragment.py --fileout file:HIG-RunIIFall18wmLHEGS-00762.root --mc --eventcontent RAWSIM,LHE --datatier GEN-SIM,LHE --conditions 102X_upgrade2018_realistic_v11 --beamspot Realistic25ns13TeVEarly2018Collision --step LHE,GEN,SIM --nThreads 8 --geometry DB:Extended --era Run2_2018 --python_filename HIG-RunIIFall18wmLHEGS-00762_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 1000
+voms-proxy-init --voms cms --valid 168:00
+
+cmsDriver.py Configuration/GenProduction/python/HIG-RunIIFall18wmLHEGS-00762-fragment.py --fileout file:test.root --mc --python_filename test_cfg.py --no_exec -s GEN --conditions=MC_3XY_V10::All --eventcontent=RECOSIM  -n 10 --customise Configuration/DataProcessing/Utils.addMonitoring
+
+  CMSSW           CMSSW_10_2_13_patch1
+                                         --> /cvmfs/cms.cern.ch/slc7_amd64_gcc700/cms/cmssw-patch/CMSSW_10_2_13_patch1
+
+. gridpack_generation.sh GF_HH_1 cards/production/2017/13TeV/GF_HH_benchmarks/GF_HH_1
+/afs/cern.ch/work/a/atishelm/private/HH_MC/genproductions/bin/MadGraph5_aMCatNLO/GF_HH_1_slc6_amd64_gcc630_CMSSW_9_3_8_tarball.tar.xz
+
+WARNING: Release CMSSW_9_3_8 is not available for architecture slc7_amd64_gcc700.
+         Developer's area is created for available architecture slc7_amd64_gcc630.
+WARNING: Developer's area is created for non-production architecture slc7_amd64_gcc630. Production architecture for this release is slc6_amd64_gcc630.
+/afs/cern.ch/work/a/atishelm/private/HH_MC/CMSSW_10_2_13_patch1/src/first_HH_attempt.root 
+
+The server answered with an error.
+Server answered with: Invalid input parameter
+Reason is: ERROR: CMSSW_10_2_13_patch1 on slc7_amd64_gcc700 is not among supported releases; Use config.JobType.allowUndistributedCMSSW = True if you are sure of what you are doing
+Error Id: 4f00e03829d629e3312df02503d897af
+Log file is /afs/cern.ch/work/a/atishelm/private/HH_MC/tryagain/CMSSW_10_2_13_patch1/src/abe_HH_MC_crab_projects/crab_abe_HH_MC/crab.log
+
+gridpack tarball path = /afs/cern.ch/work/a/atishelm/private/HH_MC/genproductions/bin/MadGraph5_aMCatNLO/GF_HH_1_slc6_amd64_gcc630_CMSSW_9_3_8_tarball.tar.xz
+%MSG-MG5 number of events requested = 10
+%MSG-MG5 random seed used for the run = 234567
+%MSG-MG5 thread count requested = 8
+%MSG-MG5 residual/optional arguments =
+%MSG-MG5 number of events requested = 10
+%MSG-MG5 random seed used for the run = 234567
+%MSG-MG5 number of cpus = 8
+%MSG-MG5 SCRAM_ARCH version = slc6_amd64_gcc630
+%MSG-MG5 CMSSW version = CMSSW_9_3_8
+WARNING: Release CMSSW_9_3_8 is not available for architecture slc7_amd64_gcc700.
+         Developer's area is created for available architecture slc7_amd64_gcc630.
+WARNING: Developer's area is created for non-production architecture slc7_amd64_gcc630. Production architecture for this release is slc6_amd64_gcc630.
+
+https://github.com/cms-sw/cmssw/issues/24436
+
+--
+
+A local gridpack seems to work locally. Can create gen-sim ntuple with 10 events that returns 
+I've created a gridpack locally with BM 1 run card just as an initial test. Locally cmsDriver and cmsRun work and I can get an ntuple with 100 events, and can produce a di higgs 
+inv. mass plot.
+Before working, during the madgraph messages I get the warning:
+WARNING: Release CMSSW_9_3_8 is not available for architecture slc7_amd64_gcc700.
+It goes ahead and works anyway, I suppose because this incompatability was known: https://github.com/cms-sw/cmssw/issues/24436#issue-356237131
+and it appears they got things working at least locally: https://github.com/cms-sw/cmssw/pull/25116#issuecomment-436139288
+Of course I would like more events, maybe ~10k, so I try to run the cmssw config file with crab, first fixing the cmssw config to locate the gridpack properly, but 
+it fails with the message log:
+
+Exit message:
+  CmsRunFailure
+  CMSSW error message follows.
+  Fatal Exception
+  An exception of category 'ExternalLHEProducer' occurred while
+     [0] Processing global begin Run run: 1
+     [1] Calling method for module ExternalLHEProducer/'externalLHEProducer'
+  Exception Message:
+  Child failed with exit code 2.
+
+This seems to be similar to the issue reported on github as it is an exception of category 'EXternalLHEProducer'.
+Is there a known method to running a cmssw config with a locally created gridpack over many events with CRAB? Should something else be used? 
+
+---
+
+Create Ntuples locally
+
+cd /afs/cern.ch/work/a/atishelm/private/HH_MC/tryagain/CMSSW_10_2_13_patch1/src
+cmsenv 
+cmsDriver.py Configuration/GenProduction/python/HIG-RunIIFall18wmLHEGS-00762-fragment.py --fileout file:HIG-RunIIFall18wmLHEGS-00762.root --mc --eventcontent RAWSIM,LHE --datatier GEN-SIM,LHE --conditions 102X_upgrade2018_realistic_v11 --beamspot Realistic25ns13TeVEarly2018Collision --step LHE,GEN,SIM --nThreads 8 --geometry DB:Extended --era Run2_2018 --python_filename HIG-RunIIFall18wmLHEGS-00762_1_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 1000
+voms-proxy-init --voms cms --valid 168:00
+cmsRun 
+cmsRun HIG-RunIIFall18wmLHEGS-00762_1_cfg.py
+
+/afs/cern.ch/work/a/atishelm/private/HH_MC/genproductions/bin/MadGraph5_aMCatNLO/abetest_slc6_amd64_gcc630_CMSSW_9_3_8_tarball.tar.xz # klambda 20 
+
+seed=$(date +%s)
+GEN-SIM:
+cmsDriver.py Configuration/GenProduction/python/HIG-RunIIFall17wmLHEGS-00580.py --fileout file:1JuneTest.root --mc --eventcontent RAWSIM,LHE --datatier GEN-SIM,LHE --conditions 93X_mc2017_realistic_v3 --beamspot Realistic25ns13TeVEarly2017Collision --step LHE,GEN,SIM --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename 1June_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring --customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed="int(${seed}%100)" -n 10
+Attempt at GEN only to run more events and faster:
+cmsDriver.py Configuration/GenProduction/python/HIG-RunIIFall17wmLHEGS-00580.py --fileout file:1JuneTest.root --mc --eventcontent LHE --datatier LHE --conditions 93X_mc2017_realistic_v3 --beamspot Realistic25ns13TeVEarly2017Collision --step LHE --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename 1June_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring --customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed="int(${seed}%100)" -n 10
+
+
+cmsDriver.py Configuration/GenProduction/python/HIG-RunIIFall17wmLHEGS-00580.py --fileout file:1JuneTest.root --mc --eventcontent LHE --datatier LHE --conditions 93X_mc2017_realistic_v3 --beamspot Realistic25ns13TeVEarly2017Collision --step LHE,GEN --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename 1June_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring --customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed="int(${seed}%100)" -n 10
+
+cmsDriver.py Configuration/GenProduction/python/HIG-RunIIFall17wmLHEGS-00580.py --fileout file:1JuneTest.root --mc --eventcontent GENRAW --datatier LHE --conditions 93X_mc2017_realistic_v3 --beamspot Realistic25ns13TeVEarly2017Collision --step LHE,GEN --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename 1June_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring --customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed="int(${seed}%100)" -n 1000
+
+***
+lxplus, session: 747, 25868.pts-2.lxplus747
+730, 19296.pts-1.lxplus730
+***
+
+kl20kt1100000Events_cfg.py
+
+cmsDriver.py Configuration/GenProduction/python/HIG-RunIIFall17wmLHEGS-00580.py --fileout file:kl20kt1100000Events.root --mc --eventcontent GENRAW --datatier LHE --conditions 93X_mc2017_realistic_v3 --beamspot Realistic25ns13TeVEarly2017Collision --step LHE,GEN --nThreads 8 --geometry DB:Extended --era Run2_2017 --python_filename kl20kt1100000Events_cfg.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring --customise_commands process.RandomNumberGeneratorService.externalLHEProducer.initialSeed="int(${seed}%100)" -n 100000
+
+25589.pts-46.lxplus725
+
+ *-------  PYTHIA Error and Warning Messages Statistics  ----------------------------------------------------------*
+ |                                                                                                                 |
+ |  times   message                                                                                                |
+ |                                                                                                                 |
+ |    287   Error in BeamRemnants::setKinematics: kinematics construction failed                                   |
+ |     55   Error in Pythia::next: hadronLevel failed; try again                                                   |
+ |     50   Error in SpaceShower::pT2nearThreshold: stuck in loop                                                  |
+ |      2   Error in SpaceShower::pT2nearThreshold: xPDF = 0                                                       |
+ |     53   Error in StringFragmentation::fragment: stuck in joining                                               |
+ |      2   Error in StringFragmentation::fragmentToJunction: caught in junction flavour loop                      |
+ |      1   Info from SLHAinterface::initSLHA: No MODSEL found, keeping internal SUSY switched off                 |
+ |      4   Warning in MultipartonInteractions::pTnext: weight above unity                                         |
+ |      1   Warning in Pythia::check: energy-momentum not quite conserved                                          |
+ |     22   Warning in Pythia::check: not quite matched particle energy/momentum/mass                              |
+ |      2   Warning in SLHAinterface::initSLHA: ignoring DECAY tables                                              |
+ |      2   Warning in SLHAinterface::initSLHA: ignoring MASS entries                                              |
+ |  88486   Warning in SpaceShower::pT2nextQCD: small daughter PDF                                                 |
+ |  18829   Warning in SpaceShower::pT2nextQCD: weight above unity                                                 |
+ |    114   Warning in StringFragmentation::fragmentToJunction: bad convergence junction rest frame                |
+ |      5   Warning in TauDecays::decay: maximum decay weight exceeded in tau decay                                |
+ |      1   Warning in TauDecays::decay: unknown correlated tau production, assuming from unpolarized photon       |
+ |     43   Warning in TimeShower::findMEcorr: ME weight above PS one                                              |
+ |                                                                                                                 |
+ *-------  End PYTHIA Error and Warning Messages Statistics  ------------------------------------------------------*
+02-Jun-2019 21:57:31 CEST  Closed LHE file cmsgrid_final.lhe
+
+------------------------------------
+GenXsecAnalyzer:
+------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Overall cross-section summary
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Process         xsec_before [pb]                passed  nposw   nnegw   tried   nposw   nnegw   xsec_match [pb]                 accepted [%]     event_eff [%]
+0               3.221e-02 +/- 8.404e-06         50000   50000   0       50000   50000   0       3.221e-02 +/- 8.404e-06         100.0 +/- 0.0   100.0 +/- 0.0
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total           3.221e-02 +/- 8.404e-06         50000   50000   0       50000   50000   0       3.221e-02 +/- 8.404e-06         100.0 +/- 0.0   100.0 +/- 0.0
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Before matching: total cross section = 3.221e-02 +- 8.404e-06 pb
+After matching: total cross section = 3.221e-02 +- 8.404e-06 pb
+Matching efficiency = 1.0 +/- 0.0   [TO BE USED IN MCM]
+Filter efficiency (taking into account weights)= (50000) / (50000) = 1.000e+00 +- 0.000e+00
+Filter efficiency (event-level)= (50000) / (50000) = 1.000e+00 +- 0.000e+00    [TO BE USED IN MCM]
+
+After filter: final cross section = 3.221e-02 +- 8.404e-06 pb
+After filter: final fraction of events with negative weights = 0.000e+00 +- 0.000e+00
+After filter: final equivalent lumi for 1M events (1/fb) = 3.105e+04 +- 2.515e+05
+TimeReport> Time report complete in 16107.4 seconds
+ Time Summary:
+ - Min event:   0.0410659
+ - Max event:   25.7671
+ - Avg event:   1.46548
+ - Total loop:  16074.2
+ - Total job:   16107.4
+ Event Throughput: 3.11057 ev/s
+ CPU Summary:
+ - Total loop:  16783.4
+ - Total extra: 51.6662
+ - Total job:   16789
+
+
+=============================================
+
+MessageLogger Summary
+
+ type     category        sev    module        subroutine        count    total
+ ---- -------------------- -- ---------------- ----------------  -----    -----
+    1 GenXSecAnalyzer      -w GenXSecAnalyzer:                      15       15
+    2 Generator            -w ExternalLHEProdu                       2        2
+    3 LHEInterface         -w ExternalLHEProdu                       2        2
+    4 LogicError           -w Pythia8Hadronize                       1        1
+    5 TimeReport           -e AfterModEndJob                         1        1
+    6 fileAction           -s ExternalLHEProdu                       2        2
+    7 fileAction           -s ExternalLHEProdu                       1        1
+
+ type    category    Examples: run/evt        run/evt          run/evt
+ ---- -------------------- ---------------- ---------------- ----------------
+    1 GenXSecAnalyzer      PostGlobalEndRun PostGlobalEndRun PostGlobalEndRun
+    2 Generator            1/18760          1/35142
+    3 LHEInterface         1/18760          1/35142
+    4 LogicError           Run: 1
+    5 TimeReport           PostGlobalEndRun
+    6 fileAction           Run: 1           Run: 1
+    7 fileAction           End Run: 1
+
+Severity    # Occurrences   Total Occurrences
+--------    -------------   -----------------
+Warning                20                  20
+Error                   1                   1
+System                  3                   3
+
+dropped waiting message count 0
+
+/afs/cern.ch/work/a/atishelm/private/HH_MC/genproductions/bin/MadGraph5_aMCatNLO/kl_1_kt_1_slc6_amd64_gcc630_CMSSW_9_3_8_tarball.tar.xz
+/afs/cern.ch/work/a/atishelm/private/HH_MC/genproductions/bin/MadGraph5_aMCatNLO/kl_0_kt_1_slc6_amd64_gcc630_CMSSW_9_3_8_tarball.tar.xz
+
+something is wrong with the kl_0_kt_1 ... something to do with setting kl value to 0 ? 
